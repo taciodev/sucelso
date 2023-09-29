@@ -7,6 +7,7 @@ import NewLog from "./emailRecup";
 import StudentPage from "./Studentpage";
 import Aulinhas from "./Aulas";
 import Notas from "./Notas";
+import CoordPage from "./Coordpage"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Studentpage" element={<StudentPage />} />
         <Route path="/Aulas" element={<Aulinhas />} />
         <Route path="/Notas" element={<Notas />} />
+        <Route path="CoordPage" element={<CoordPage />} />
       </Routes>
     </Router>
   );

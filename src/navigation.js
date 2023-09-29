@@ -37,6 +37,11 @@ export default function Navigation() {
                 StudentPage
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/CoordPage">
+                CoordPage
+              </a>
+            </li>
 
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
