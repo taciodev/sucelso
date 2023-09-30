@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function NavAluno() {
+export default function NavProf() {
   const [collapsed, setCollapsed] = React.useState(true);
   const toggleNavbar = () => {
     setCollapsed(!collapsed);
@@ -26,8 +26,8 @@ export default function NavAluno() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/Notas">
-                Consultar Notas
+              <a className="nav-link" href="/PostAulas">
+                Postar Aulas
               </a>
             </li>
             <li className="nav-item">

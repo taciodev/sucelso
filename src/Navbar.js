@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function NavAluno() {
+export default function Navbar() {
   const [collapsed, setCollapsed] = React.useState(true);
   const toggleNavbar = () => {
     setCollapsed(!collapsed);
@@ -26,12 +26,7 @@ export default function NavAluno() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/Notas">
-                Consultar Notas
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/MessageBox">
+              <a className="nav-link" href="/Studentpage">
                 Enviar Mensagem
               </a>
             </li>

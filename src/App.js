@@ -5,9 +5,11 @@ import HomePage from "./Homepage";
 import LoginPageF from "./loginF";
 import NewLog from "./emailRecup";
 import StudentPage from "./Studentpage";
-import Aulinhas from "./Aulas";
 import Notas from "./Notas";
-import CoordPage from "./Coordpage"
+import CoordPage from "./Coordpage";
+import ProfPage from "./ProfPage";
+import MessageBox from "./MessageBox";
+import PostAulas from "./PostAulas";
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
         <Route path="/Aulas" element={<Aulinhas />} />
         <Route path="/Notas" element={<Notas />} />
         <Route path="CoordPage" element={<CoordPage />} />
+        <Route path="ProfPage" element={<ProfPage />} />
+        <Route path="MessageBox" element={<MessageBox />} />
+        <Route path="PostAulas" element={<PostAulas />} />
       </Routes>
     </Router>
   );

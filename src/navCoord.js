@@ -31,22 +31,12 @@ export default function NavbarCoord() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/Studentpage">
-                Cadastrar/Excluir Professor
+              <a className="nav-link" href="/PostAulas">
+                Postar Aulas
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/Studentpage">
-                Cadastrar/Excluir Turma
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/Studentpage">
-                Lançar/Editar Notas
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/Studentpage">
+              <a className="nav-link" href="/MessageBox">
                 Enviar Mensagem
               </a>
             </li>

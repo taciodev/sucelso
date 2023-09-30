@@ -1,108 +1,42 @@
-// import { Link } from "react-router-dom";
-import React, { useRef, useState } from "react";
-import Navbar from "./navAluno";
+import NavAluno from "./navAluno";
+import ReactPlayer from "react-player";
 
 export default function StudentPage() {
   return (
     <>
-      <Navbar />
-      <VideoAulas
-        videoUrl="https://ytc.re/button/mp4/ElRd0cbXIv4"
-        posterUrl="/images/reactlogo.jpe"
-      />
-      <VideoAulas
-        videoUrl="https://ytc.re/button/mp4/ElRd0cbXIv4"
-        posterUrl="/images/reactlogo.jpe"
-      />
-      <VideoAulas
-        videoUrl="https://ytc.re/button/mp4/ElRd0cbXIv4"
-        posterUrl="/images/reactlogo.jpe"
-      />
-      <VideoAulas
-        videoUrl="https://ytc.re/button/mp4/ElRd0cbXIv4"
-        posterUrl="/images/reactlogo.jpe"
-      />
+      <NavAluno />
+      <VideoAulas />
     </>
   );
 }
-function VideoAulas({ videoUrl, posterUrl }) {
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const togglePlay = () => {
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
+function VideoAulas() {
+  const java = "https://www.youtube.com/watch?v=ElRd0cbXIv4&t=3s";
   return (
-    <>
-      <div className="container">
-        <img
-          src={posterUrl}
-          alt="Thumbnail"
-          onClick={togglePlay}
-          style={{ cursor: "pointer" }}
-        />
-
-        <video
-          ref={videoRef}
-          src={videoUrl}
-          controls={isPlaying}
-          style={{ display: isPlaying ? "block" : "none" }}
-        />
+    <div>
+      <ReactPlayer url={java} />
+      <div className="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">
+          Comentários
+        </label>
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
       </div>
-    </>
+    </div>
   );
 }
 
-// function Instudentpage() {
-//   return (
-//     <main
-//       className="container "
-//       style={{
-//         marginLeft: "40%",
-//         marginTop: "100px",
-//       }}
-//     >
-//       <div>
-//         <Link to="/Aulas">
-//           <button type="button" className="btn btn-primary btn-lg">
-//             Assistir Aulas
-//           </button>
-//         </Link>
-//       </div>
-//       <div>
-//         <Link to="/Notas">
-//           <button
-//             type="button"
-//             className="btn btn-primary btn-lg"
-//             style={{ marginTop: "30px" }}
-//           >
-//             Consultar Notas
-//           </button>
-//         </Link>
-//       </div>
-//       <div>
-//         <button
-//           type="button"
-//           className="btn btn-primary btn-lg"
-//           style={{ marginTop: "30px" }}
-//         >
-//           Falar com Supervisor
-//         </button>
-//       </div>
-//       <div>
-//         <button
-//           type="button"
-//           className="btn btn-primary btn-lg"
-//           style={{ marginTop: "30px" }}
-//         >
-//           Cancelar Matrícula
-//         </button>
-//       </div>
-//     </main>
-//   );
-// }
+// const [youtubeID] = useState('IEDEtZ4UVtI')
+
+// [...]
+
+// <iframe className='video'
+//         title='Youtube player'
+//         sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+//         src={`https://youtube.com/embed/${youtubeID}?autoplay=0`}>
+// </iframe>
+// Share
+// Edit
+// Follow
