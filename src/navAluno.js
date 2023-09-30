@@ -32,11 +32,6 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/Studentpage">
-                StudentPage
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/Studentpage">
                 Enviar Mensagem
               </a>
             </li>
