@@ -10,21 +10,23 @@ export default function StudentPage() {
   );
 }
 function VideoAulas() {
-  const java = "https://www.youtube.com/watch?v=ElRd0cbXIv4&t=3s";
+  const python = "https://www.youtube.com/watch?v=ElRd0cbXIv4&t=3s";
   return (
-    <div>
-      <ReactPlayer url={java} />
-      <div className="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">
-          Comentários
-        </label>
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-        ></textarea>
+    <main className="container" style={{ marginTop: "5%" }}>
+      <div>
+        <ReactPlayer url={python} />
+        <div className="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">
+            Comentários
+          </label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 

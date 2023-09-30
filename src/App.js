@@ -5,11 +5,11 @@ import HomePage from "./Homepage";
 import LoginPageF from "./loginF";
 import NewLog from "./emailRecup";
 import StudentPage from "./Studentpage";
-import Notas from "./Notas";
 import CoordPage from "./Coordpage";
 import ProfPage from "./ProfPage";
 import MessageBox from "./MessageBox";
 import PostAulas from "./PostAulas";
+import Cadastro from "./Cadastro";
 
 function App() {
   return (
@@ -19,11 +19,11 @@ function App() {
         <Route path="/loginF" element={<LoginPageF />} />
         <Route path="/emailRecup" element={<NewLog />} />
         <Route path="/Studentpage" element={<StudentPage />} />
-        <Route path="/Notas" element={<Notas />} />
         <Route path="CoordPage" element={<CoordPage />} />
         <Route path="ProfPage" element={<ProfPage />} />
         <Route path="MessageBox" element={<MessageBox />} />
         <Route path="PostAulas" element={<PostAulas />} />
+        <Route path="Cadastro" element={<Cadastro />} />
       </Routes>
     </Router>
   );

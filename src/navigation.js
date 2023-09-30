@@ -43,7 +43,7 @@ export default function Navigation() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/CoordPage">
+              <a className="nav-link" href="/ProfPage">
                 ProfPage
               </a>
             </li>

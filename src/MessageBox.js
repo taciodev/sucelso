@@ -12,20 +12,28 @@ export default function MessageBox() {
 function Message() {
   return (
     <main className="container" style={{ marginTop: "5%" }}>
-      <select class="form-select" aria-label="Default select example">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        style={{ color: "blue" }}
+      >
         <option selected>Selecionar Professor</option>
         <option value="1">Celso Barreto</option>
         <option value="2">Fabio Gonzaga</option>
         <option value="3">Sheila Maquezin</option>
       </select>
-      <select class="form-select" aria-label="Default select example">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        style={{ marginTop: "5%", color: "blue" }}
+      >
         <option selected>Selecionar Aluno</option>
         <option value="1">Caio César</option>
         <option value="2">Renata Campos</option>
         <option value="3">Gabriel Pamponet</option>
         <option value="3">Claudia Silva</option>
       </select>
-      <div className="mb-3">
+      <div className="mb-3" style={{ marginTop: "7%" }}>
         <label for="exampleFormControlTextarea1" class="form-label">
           Escrever sua Mensagem
         </label>
@@ -36,7 +44,7 @@ function Message() {
         ></textarea>
       </div>
       <button type="button" class="btn btn-primary">
-        Primary
+        Enviar
       </button>
     </main>
   );

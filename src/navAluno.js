@@ -25,11 +25,7 @@ export default function NavAluno() {
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/Notas">
-                Consultar Notas
-              </a>
-            </li>
+
             <li className="nav-item">
               <a className="nav-link" href="/MessageBox">
                 Enviar Mensagem

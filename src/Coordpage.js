@@ -1,5 +1,6 @@
 import React from "react";
 import NavbarCoord from "./navCoord";
+import "./App.css";
 
 const styles = {
   container: {
