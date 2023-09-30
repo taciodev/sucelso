@@ -19,7 +19,7 @@ function App() {
         <Route path="/loginF" element={<LoginPageF />} />
         <Route path="/emailRecup" element={<NewLog />} />
         <Route path="/Studentpage" element={<StudentPage />} />
-        <Route path="/Aulas" element={<Aulinhas />} />
+
         <Route path="/Notas" element={<Notas />} />
         <Route path="CoordPage" element={<CoordPage />} />
         <Route path="ProfPage" element={<ProfPage />} />
