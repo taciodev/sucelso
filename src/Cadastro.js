@@ -1,139 +1,165 @@
+import { useState } from "react";
 import NavbarCoord from "./navCoord";
 
 export default function Cadastro() {
   return (
     <>
       <NavbarCoord />
-      <CadastroAluno />;
+      <Cadastrar />
+      <Excluir />
     </>
   );
 }
 
-function CadastroAluno() {
+function Cadastrar() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [curso, setCurso] = useState("Selecionar Curso");
+  const [ator, setAtor] = useState("Selecionar");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const newItem = { nome, email, senha, curso, ator };
+    console.log(newItem);
+  }
   return (
     <main className="container">
-      <form class="row g-3">
+      <h1 style={{ color: "blue", marginTop: "7%" }}>CADASTRAR</h1>
+      <form
+        className="row g-3 needs-validation"
+        novalidate
+        onSubmit={handleSubmit}
+      >
         <div className="col-md-4">
-          <label for="validationServer01" class="form-label">
-            Nome
+          <label for="validationCustom01" className="form-label">
+            Nome Completo
           </label>
           <input
             type="text"
-            class="form-control is-valid"
-            id="validationServer01"
-            value="Mark"
+            className="form-control"
+            id="validationCustom01"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
             required
           />
           <div className="valid-feedback">Looks good!</div>
         </div>
+
         <div className="col-md-4">
-          <label for="validationServer02" class="form-label">
-            Sobrenome
+          <label for="validationCustom01" className="form-label">
+            Senha
           </label>
           <input
             type="text"
-            class="form-control is-valid"
-            id="validationServer02"
-            value="Otto"
+            className="form-control"
+            id="validationCustom01"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             required
           />
-          <div className="valid-feedback">Looks good!</div>
         </div>
+
         <div className="col-md-4">
-          <label for="validationServerUsername" className="form-label">
+          <label for="validationCustomUsername" className="form-label">
             Email
           </label>
           <div className="input-group has-validation">
-            <span className="input-group-text" id="inputGroupPrepend3">
+            <span className="input-group-text" id="inputGroupPrepend">
               @
             </span>
             <input
               type="email"
-              class="form-control is-invalid"
-              id="validationServerUsername"
-              aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+              className="form-control"
+              id="validationCustomUsername"
+              aria-describedby="inputGroupPrepend"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <div
-              id="validationServerUsernameFeedback"
-              className="invalid-feedback"
-            >
-              Please choose a username.
-            </div>
+            <div className="invalid-feedback"></div>
           </div>
         </div>
-        <div className="col-md-6">
-          <label for="validationServer03" class="form-label">
-            City
-          </label>
-          <input
-            type="text"
-            class="form-control is-invalid"
-            id="validationServer03"
-            aria-describedby="validationServer03Feedback"
-            required
-          />
-          <div id="validationServer03Feedback" className="invalid-feedback">
-            Please provide a valid city.
-          </div>
-        </div>
+
         <div className="col-md-3">
-          <label for="validationServer04" className="form-label">
-            State
+          <label for="validationCustom04" className="form-label">
+            Curso
           </label>
           <select
-            className="form-select is-invalid"
-            id="validationServer04"
-            aria-describedby="validationServer04Feedback"
+            className="form-select"
+            id="validationCustom04"
+            value={curso}
+            onChange={(e) => setCurso(e.target.value)}
             required
           >
-            <option selected disabled value="">
-              Choose...
-            </option>
-            <option>...</option>
+            <option>Progamação</option>
+            <option>Análise de Dados</option>
           </select>
-          <div id="validationServer04Feedback" className="invalid-feedback">
-            Please select a valid state.
-          </div>
+          <div className="invalid-feedback">Selecione uma opção</div>
         </div>
         <div className="col-md-3">
-          <label for="validationServer05" className="form-label">
-            CEP
+          <label for="validationCustom04" className="form-label">
+            Ator
           </label>
-          <input
-            type="text"
-            className="form-control is-invalid"
-            id="validationServer05"
-            aria-describedby="validationServer05Feedback"
+          <select
+            className="form-select"
+            id="validationCustom04"
+            value={ator}
+            onChange={(e) => setAtor(e.target.value)}
             required
-          />
-          <div id="validationServer05Feedback" className="invalid-feedback">
-            Please provide a valid zip.
-          </div>
+          >
+            <option>Aluno</option>
+            <option>Professor</option>
+          </select>
+          <div className="invalid-feedback">Selecione uma opção</div>
         </div>
         <div className="col-12">
-          <div className="form-check">
-            <input
-              className="form-check-input is-invalid"
-              type="checkbox"
-              value=""
-              id="invalidCheck3"
-              aria-describedby="invalidCheck3Feedback"
-              required
-            />
-            <label className="form-check-label" for="invalidCheck3">
-              Agree to terms and conditions
-            </label>
-            <div id="invalidCheck3Feedback" class="invalid-feedback">
-              You must agree before submitting.
-            </div>
-          </div>
+          <button className="btn btn-primary">Cadastrar</button>
         </div>
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">
-            Submit form
-          </button>
+      </form>
+    </main>
+  );
+}
+
+function Excluir() {
+  return (
+    <main>
+      <h1 style={{ color: "blue", marginTop: "7%" }}> EXCLUIR</h1>
+      <form>
+        <div className="col-md-3">
+          <label for="validationCustom04" className="form-label">
+            Alunos
+          </label>
+          <select className="form-select" id="validationCustom04" required>
+            <option selected disabled value="">
+              Selecionar
+            </option>
+            <option>Caio César</option>
+            <option>Gabriel Pamponet</option>
+            <option>Renata Santos</option>
+            <option>Claúdia Leite</option>
+          </select>
+          <div className="invalid-feedback">Selecione uma opção</div>
         </div>
+
+        <div className="col-md-3">
+          <label for="validationCustom04" className="form-label">
+            Professor
+          </label>
+          <select className="form-select" id="validationCustom04" required>
+            <option selected disabled value="">
+              Selecionar
+            </option>
+            <option>Celso Barreto</option>
+            <option>Fabio Gonzaga</option>
+            <option>Sheila Maquezin</option>
+          </select>
+          <div className="invalid-feedback">Selecione uma opção</div>
+        </div>
+
+        <button className="btn btn-danger" type="submit">
+          Cadastrar
+        </button>
       </form>
     </main>
   );

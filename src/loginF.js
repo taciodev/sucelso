@@ -13,14 +13,21 @@ export default function LoginPageF() {
 function LoginF() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const LoginItens = { email, password, id: Date.now() };
-  console.log(LoginItens);
+
+  function handleLogin() {
+    const LoginItens = { email, password };
+    console.log(LoginItens);
+  }
 
   return (
-    <form className="container" style={{ marginTop: "30px" }}>
+    <form
+      className="container"
+      style={{ marginTop: "30px" }}
+      onSubmit={handleLogin}
+    >
       <div className="mb-3">
         <label for="exampleInputEmail1" class="form-label">
-          Id
+          Email
         </label>
         <input
           type="email"
@@ -45,7 +52,7 @@ function LoginF() {
         <a href="/emailRecup">Esqueceu seu email</a>
       </div>
 
-      <button type="submit" class="btn btn-primary" style={{ margin: "50px" }}>
+      <button class="btn btn-primary" style={{ margin: "50px" }}>
         Entrar
       </button>
     </form>

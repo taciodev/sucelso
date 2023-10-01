@@ -38,7 +38,7 @@ function MainBody() {
         </p>{" "}
         <br />
         <img
-          src="/images/student.jpeg"
+          src="/images/ComputerScienceImage.jpg"
           className="img-thumbnail"
           alt="..."
           style={{
@@ -51,61 +51,3 @@ function MainBody() {
     </div>
   );
 }
-
-// function Incoordpage() {
-//   return (
-//     <main
-//       className="container "
-//       style={{
-//         marginLeft: "40%",
-//         marginTop: "100px",
-//       }}
-//     >
-//       <div>
-//         <Link to="/Aulas">
-//           <button type="button" className="btn btn-primary btn-lg">
-//             Cadastrar/Excluir Aluno
-//           </button>
-//         </Link>
-//       </div>
-//       <div>
-//         <Link to="/Notas">
-//           <button
-//             type="button"
-//             className="btn btn-primary btn-lg"
-//             style={{ marginTop: "30px" }}
-//           >
-//             Cadastrar/Excluir Professor
-//           </button>
-//         </Link>
-//       </div>
-//       <div>
-//         <button
-//           type="button"
-//           className="btn btn-primary btn-lg"
-//           style={{ marginTop: "30px" }}
-//         >
-//           Cadastrar/Excluir Turma
-//         </button>
-//       </div>
-//       <div>
-//         <button
-//           type="button"
-//           className="btn btn-primary btn-lg"
-//           style={{ marginTop: "30px" }}
-//         >
-//           Lançar/Editar Notas
-//         </button>
-//       </div>
-//       <div>
-//         <button
-//           type="button"
-//           className="btn btn-primary btn-lg"
-//           style={{ marginTop: "30px" }}
-//         >
-//           Falar com Professor/Aluno
-//         </button>
-//       </div>
-//     </main>
-//   );
-// }
