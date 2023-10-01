@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NavbarCoord from "./navCoord";
+import { firestore } from "./firebase";
 
 export default function Cadastro() {
   return (
@@ -19,8 +20,10 @@ function Cadastrar() {
   const [ator, setAtor] = useState("");
 
   function handleSubmit() {
-    const newItem = { nome, email, senha, curso, ator };
-    console.log(newItem);
+    const dados = { nome, email, senha, curso, ator };
+    // await firestore.collection("users").add(dados)
+    // setNome("")
+    // setEmail("")
   }
   return (
     <main className="container">
