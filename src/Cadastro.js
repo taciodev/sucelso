@@ -153,6 +153,7 @@ function Excluir() {
             <option>Gabriel Pamponet</option>
             <option>Renata Santos</option>
             <option>Claúdia Leite</option>
+            <option>Nenhum</option>
           </select>
           <div className="invalid-feedback">Selecione uma opção</div>
         </div>
@@ -174,6 +175,7 @@ function Excluir() {
             <option>Celso Barreto</option>
             <option>Fabio Gonzaga</option>
             <option>Sheila Maquezin</option>
+            <option>Nenhum</option>
           </select>
           <div className="invalid-feedback">Selecione uma opção</div>
         </div>
