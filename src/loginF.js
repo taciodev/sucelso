@@ -1,7 +1,5 @@
 import { useState } from "react";
 import Navbar from "./navAluno";
-import StudentPage from "./Studentpage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function LoginPageF() {
   return (
@@ -19,13 +17,6 @@ function LoginF() {
   function handleLogin() {
     const LoginItens = { email, password };
     console.log(LoginItens);
-    return (
-      <Router>
-        <Routes>
-          <Route path="StudentPage" element={<StudentPage />} />
-        </Routes>
-      </Router>
-    );
   }
 
   return (

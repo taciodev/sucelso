@@ -38,7 +38,7 @@ function MainBody() {
         </p>{" "}
         <br />
         <img
-          src="/images/comp.jpg"
+          src="/images/B-Tech.jpeg"
           className="img-thumbnail"
           alt="..."
           style={{
