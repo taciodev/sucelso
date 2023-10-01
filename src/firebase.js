@@ -24,4 +24,4 @@ const analytics = getAnalytics(app);
 
 firebase.initializeApp(firebaseConfig);
 
-export const firestore = firebase.firestore();
+// export const firestore = firebase.firestore();
