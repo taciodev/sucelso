@@ -15,11 +15,10 @@ function Cadastrar() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [curso, setCurso] = useState("Selecionar Curso");
-  const [ator, setAtor] = useState("Selecionar");
+  const [curso, setCurso] = useState("");
+  const [ator, setAtor] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit() {
     const newItem = { nome, email, senha, curso, ator };
     console.log(newItem);
   }
@@ -122,15 +121,31 @@ function Cadastrar() {
 }
 
 function Excluir() {
+  const [aluno, setAluno] = useState("Selecionar");
+  const [prof, setProf] = useState("Selecionar");
+  function handleSubmit() {
+    const newItem = { aluno, prof };
+    console.log(newItem);
+  }
   return (
-    <main>
-      <h1 style={{ color: "blue", marginTop: "7%" }}> EXCLUIR</h1>
-      <form>
+    <main className="container">
+      <h1 style={{ color: "red", marginTop: "7%" }}> EXCLUIR</h1>
+      <form
+        className="row g-3 needs-validation"
+        novalidate
+        onSubmit={handleSubmit}
+      >
         <div className="col-md-3">
           <label for="validationCustom04" className="form-label">
             Alunos
           </label>
-          <select className="form-select" id="validationCustom04" required>
+          <select
+            className="form-select"
+            id="validationCustom04"
+            value={aluno}
+            onChange={(e) => setAluno(e.target.value)}
+            required
+          >
             <option selected disabled value="">
               Selecionar
             </option>
@@ -146,7 +161,13 @@ function Excluir() {
           <label for="validationCustom04" className="form-label">
             Professor
           </label>
-          <select className="form-select" id="validationCustom04" required>
+          <select
+            className="form-select"
+            id="validationCustom04"
+            required
+            value={prof}
+            onChange={(e) => setProf(e.target.value)}
+          >
             <option selected disabled value="">
               Selecionar
             </option>
@@ -158,7 +179,7 @@ function Excluir() {
         </div>
 
         <button className="btn btn-danger" type="submit">
-          Cadastrar
+          Excluir
         </button>
       </form>
     </main>
