@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavbarCoord from "./navCoord";
+import { firestore } from "./firebase";
 
 export default function Cadastro() {
   return (
@@ -7,6 +8,7 @@ export default function Cadastro() {
       <NavbarCoord />
       <Cadastrar />
       <Excluir />
+      <TestDB />
     </>
   );
 }
@@ -190,3 +192,30 @@ function Excluir() {
     </main>
   );
 }
+const TestDB = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const itemCollection = firestore.collection("items");
+        const snapshot = await itemCollection.get();
+        const itemsData = snapshot.docs.map((doc) => doc.data());
+        setItems(itemsData);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchData();
+  }, []);
+  return (
+    <div>
+      <h2>Items from Firestore:</h2>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};

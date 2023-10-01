@@ -2,11 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./App.css";
 import App from "./App";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import {
-  getAuth,
-  onAuthStatechanged,
-} from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStatechanged } from "firebase/auth";
 
 <link
   href="https://fonts.googleapis.com/css2?family=Foldit:wght@100&family=Noto+Sans+JP:wght@100&family=Roboto+Mono:ital,wght@1,200&family=Tilt+Prism&display=swap"
@@ -37,11 +34,3 @@ const firebaseApp = initializeApp({
   measurementId: "G-GP615Q2FW3",
 });
 const auth = getAuth(firebaseApp);
-
-onAuthStatechanged(auth, (user) => {
-  if (user != null) {
-    console.log("logged in!");
-  } else {
-    console.log("none");
-  }
-});
