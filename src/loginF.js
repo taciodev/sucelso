@@ -49,7 +49,7 @@ function LoginF() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <a href="/emailRecup">Esqueceu seu email</a>
+        <a href="/emailRecup">Esqueceu sua senha</a>
       </div>
 
       <button class="btn btn-primary" style={{ margin: "50px" }}>

@@ -56,35 +56,35 @@ function Footer() {
       <p className="footMessage"> Mais de 100 empresas parceiras no mundo </p>
 
       <div style={{ display: "flex", alignItems: "center", marginLeft: "25%" }}>
-        <a href="https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350614#overview">
+        <a href="https://www.udemy.com">
           <img
             src="/images/udemy_logo.jpeg"
             alt="broken"
             style={{ width: "50px", marginRight: "70px" }}
           />{" "}
         </a>
-        <a href="https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350614#overview">
+        <a href="https://www.youtube.com">
           <img
             src="/images/youtube_logo.jpeg"
             alt="broken"
             style={{ width: "50px", marginRight: "70px" }}
           />{" "}
         </a>
-        <a href="https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350614#overview">
+        <a href="https://www.Pinterest.com">
           <img
             src="/images/logo-Pinterest.jpg"
             alt="broken"
             style={{ width: "50px", marginRight: "70px" }}
           />{" "}
         </a>
-        <a href="https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350614#overview">
+        <a href="https://www.linkedin.com">
           <img
             src="/images/linkedin_logo.jpeg"
             alt="broken"
             style={{ width: "50px", marginRight: "70px" }}
           />{" "}
         </a>
-        <a href="https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350614#overview">
+        <a href="https://www.coursera.com">
           <img
             src="/images/coursera-logo.png"
             alt="broken"
