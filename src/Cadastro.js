@@ -1,19 +1,10 @@
 import { useState } from "react";
 import NavbarCoord from "./navCoord";
 import React, { useRef } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebaseconfig";
 
-export default function Cadastro() {
-  return (
-    <>
-      <NavbarCoord />
-      <Cadastrar />
-      <Excluir />
-      {/* <TestDB /> */}
-    </>
-  );
-}
+
 
 function Cadastrar() {
   const nomeInput = useRef();
@@ -21,25 +12,36 @@ function Cadastrar() {
   const passwordInput = useRef();
   const cursoInput = useRef();
   const atorInput = useRef();
+
   const handleSubmit = async () => {
     const nome = nomeInput.current.value;
     const email = emailInput.current.value;
     const password = passwordInput.current.value;
     const curso = cursoInput.current.value;
     const ator = atorInput.current.value;
-    const user = await createUserWithEmailAndPassword(auth, email, password);
+    
+    await criarUsuario()
     console.log(user);
   };
 
-  // const auth = getAuth();
-  // createUserWithEmailAndPassword(auth, email, senha);
-  // .then((userCredential) => {
-  //   const user = userCredential.user
-  // })
-  // .catch((error) => {
-  //   const errorCode = error.code
-  //   const errorMessage = error.meessage
-  // })
+  async function criarUsuario() {
+
+    const auth = getAuth();
+
+    await createUserWithEmailAndPassword(auth, email, senha)
+      .then((userCredential) => {
+        const user = userCredential.user
+        console.log(user)
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.meessage
+        console.log(error)
+      })
+
+  }
+
+
 
   return (
     <main className="container">
@@ -111,12 +113,15 @@ function Cadastrar() {
 }
 
 function Excluir() {
+
   const [aluno, setAluno] = useState("Selecionar");
   const [prof, setProf] = useState("Selecionar");
+
   function handleSubmit() {
     const newItem = { aluno, prof };
     console.log(newItem);
   }
+
   return (
     <main className="container">
       <h1 style={{ color: "red", marginTop: "7%" }}> EXCLUIR</h1>
@@ -175,5 +180,16 @@ function Excluir() {
         </button>
       </form>
     </main>
+  );
+}
+
+export default function Cadastro() {
+  return (
+    <>
+      <NavbarCoord />
+      <Cadastrar />
+      <Excluir />
+      {/* <TestDB /> */}
+    </>
   );
 }
