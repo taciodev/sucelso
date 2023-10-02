@@ -1,5 +1,8 @@
 import { useState } from "react";
 import NavbarCoord from "./navCoord";
+import React, { useRef } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebaseconfig";
 
 export default function Cadastro() {
   return (
@@ -13,71 +16,64 @@ export default function Cadastro() {
 }
 
 function Cadastrar() {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [curso, setCurso] = useState("");
-  const [ator, setAtor] = useState("");
+  const nomeInput = useRef();
+  const emailInput = useRef();
+  const passwordInput = useRef();
+  const cursoInput = useRef();
+  const atorInput = useRef();
+  const handleSubmit = async () => {
+    const nome = nomeInput.current.value;
+    const email = emailInput.current.value;
+    const password = passwordInput.current.value;
+    const curso = cursoInput.current.value;
+    const ator = atorInput.current.value;
+    const user = await createUserWithEmailAndPassword(auth, email, password);
+    console.log(user);
+  };
 
-  function handleSubmit() {
-    const dados = { nome, email, senha, curso, ator };
-    console.log(dados);
-    // await firestore.collection("users").add(dados)
-    // setNome("")
-    // setEmail("")
-  }
+  // const auth = getAuth();
+  // createUserWithEmailAndPassword(auth, email, senha);
+  // .then((userCredential) => {
+  //   const user = userCredential.user
+  // })
+  // .catch((error) => {
+  //   const errorCode = error.code
+  //   const errorMessage = error.meessage
+  // })
+
   return (
     <main className="container">
       <h1 style={{ color: "blue", marginTop: "7%" }}>CADASTRAR</h1>
-      <form
-        className="row g-3 needs-validation"
-        novalidate
-        onSubmit={handleSubmit}
-      >
+      <form className="row g-3 needs-validation">
         <div className="col-md-4">
-          <label for="validationCustom01" className="form-label">
-            Nome Completo
-          </label>
+          <label className="form-label">Nome Completo</label>
           <input
             type="text"
+            ref={nomeInput}
             className="form-control"
-            id="validationCustom01"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            required
-          />
-          <div className="valid-feedback">Looks good!</div>
-        </div>
-
-        <div className="col-md-4">
-          <label for="validationCustom01" className="form-label">
-            Senha
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationCustom01"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
             required
           />
         </div>
 
         <div className="col-md-4">
-          <label for="validationCustomUsername" className="form-label">
-            Email
-          </label>
+          <label className="form-label">Senha</label>
+          <input
+            type="password"
+            ref={passwordInput}
+            className="form-control"
+            required
+          />
+        </div>
+
+        <div className="col-md-4">
+          <label className="form-label">Email</label>
           <div className="input-group has-validation">
-            <span className="input-group-text" id="inputGroupPrepend">
-              @
-            </span>
+            <span className="input-group-text">@</span>
             <input
               type="email"
+              ref={emailInput}
               className="form-control"
-              id="validationCustomUsername"
               aria-describedby="inputGroupPrepend"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <div className="invalid-feedback"></div>
@@ -85,39 +81,29 @@ function Cadastrar() {
         </div>
 
         <div className="col-md-3">
-          <label for="validationCustom04" className="form-label">
-            Curso
-          </label>
-          <select
-            className="form-select"
-            id="validationCustom04"
-            value={curso}
-            onChange={(e) => setCurso(e.target.value)}
-            required
-          >
+          <label className="form-label">Curso</label>
+          <select className="form-select" ref={cursoInput}>
             <option>Progamação</option>
             <option>Análise de Dados</option>
           </select>
           <div className="invalid-feedback">Selecione uma opção</div>
         </div>
         <div className="col-md-3">
-          <label for="validationCustom04" className="form-label">
-            Ator
-          </label>
-          <select
-            className="form-select"
-            id="validationCustom04"
-            value={ator}
-            onChange={(e) => setAtor(e.target.value)}
-            required
-          >
+          <label className="form-label">Ator</label>
+          <select className="form-select" required ref={atorInput}>
             <option>Aluno</option>
             <option>Professor</option>
           </select>
           <div className="invalid-feedback">Selecione uma opção</div>
         </div>
         <div className="col-12">
-          <button className="btn btn-primary">Cadastrar</button>
+          <button
+            className="btn  btn-primary"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Cadastrar
+          </button>
         </div>
       </form>
     </main>
