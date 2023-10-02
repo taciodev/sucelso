@@ -1,10 +1,8 @@
 import { useState } from "react";
 import NavbarCoord from "./navCoord";
 import React, { useRef } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebaseconfig";
-
-
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "./services/firebaseConfig";
 
 function Cadastrar() {
   const nomeInput = useRef();
@@ -13,36 +11,17 @@ function Cadastrar() {
   const cursoInput = useRef();
   const atorInput = useRef();
 
-  const handleSubmit = async () => {
-    const nome = nomeInput.current.value;
-    const email = emailInput.current.value;
-    const password = passwordInput.current.value;
-    const curso = cursoInput.current.value;
-    const ator = atorInput.current.value;
-    
-    await criarUsuario()
-    console.log(user);
-  };
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
-  async function criarUsuario() {
-
-    const auth = getAuth();
-
-    await createUserWithEmailAndPassword(auth, email, senha)
-      .then((userCredential) => {
-        const user = userCredential.user
-        console.log(user)
-      })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.meessage
-        console.log(error)
-      })
-
+  function handleSignOut(e) {
+    e.preventDefault();
+    createUserWithEmailAndPassword(emailInput.current.value, passwordInput.current.value);
   }
 
-
-
+  if (loading) {
+    return <p>carregando...</p>;
+  }
   return (
     <main className="container">
       <h1 style={{ color: "blue", marginTop: "7%" }}>CADASTRAR</h1>
@@ -102,7 +81,7 @@ function Cadastrar() {
           <button
             className="btn  btn-primary"
             type="submit"
-            onClick={handleSubmit}
+            onClick={handleSignOut}
           >
             Cadastrar
           </button>

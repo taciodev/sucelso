@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Navbar from "./navAluno";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "./services/firebaseConfig";
 
 export default function LoginPageF() {
   return (
@@ -17,27 +16,23 @@ export default function LoginPageF() {
 function LoginF() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  // function handleLogin() {
-  //   const auth = getAuth()
-  //   signInWithEmailAndPassword(auth, email, senha);
-  //   .then((userCredential) =>{
-  //     const user = userCredential.user
-  //     console.log("Logged in as: ", user.email)
-  //   })
-  //   .catch((error) => {
-  //     const errorCode = error.code
-  //     const errorMessage = error.message
-  //     console.error(`Error (${errorCode}): ${errorMessage}`)
-  //   })
-  //   const LoginItens = { email, senha };
-  //   console.log(LoginItens);
-  // }
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+  useSignInWithEmailAndPassword(auth);
+
+  function handleSignOut(e) {
+    e.preventDefault();
+    signInWithEmailAndPassword(email, senha);
+  }
+
+  if (loading) {
+    return <p>carregando...</p>;
+  }
 
   return (
     <form
       className="container"
       style={{ marginTop: "30px" }}
-      // onSubmit={handleLogin}
     >
       <div className="mb-3">
         <label for="exampleInputEmail1" class="form-label">
@@ -66,7 +61,7 @@ function LoginF() {
         <a href="/emailRecup">Esqueceu sua senha</a>
       </div>
 
-      <button class="btn btn-primary" style={{ margin: "50px" }}>
+      <button class="btn btn-primary" style={{ margin: "50px" }} onSubmit={handleSignOut}>
         Entrar
       </button>
     </form>
