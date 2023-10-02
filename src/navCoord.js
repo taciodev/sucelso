@@ -9,10 +9,7 @@ export default function NavbarCoord() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a
-          className="navbar-brand"
-          href="https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350614#overview"
-        >
+        <a className="navbar-brand" href="/">
           <img src="/images/logo.png" alt="..." className="logo" />
         </a>
         <button className="navbar-toggler" type="button" onClick={toggleNavbar}>

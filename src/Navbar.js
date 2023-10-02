@@ -9,10 +9,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a
-          className="navbar-brand"
-          href="https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350614#overview"
-        >
+        <a className="navbar-brand" href="/">
           <img src="/images/logo.png" alt="..." className="logo" />
         </a>
         <button className="navbar-toggler" type="button" onClick={toggleNavbar}>
@@ -26,7 +23,7 @@ export default function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/Studentpage">
+              <a className="nav-link" href="/MessageBox">
                 Enviar Mensagem
               </a>
             </li>
