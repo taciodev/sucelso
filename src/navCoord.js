@@ -27,16 +27,7 @@ export default function NavbarCoord() {
                 Efetuar Cadastros
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/PostAulas">
-                Postar Aulas
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/MessageBox">
-                Enviar Mensagem
-              </a>
-            </li>
+            
           </ul>
         </div>
       </div>

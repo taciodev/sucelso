@@ -1,10 +1,13 @@
 import { useState } from "react";
+import {Link } from "react-router-dom"
+
 import Navbar from "./navAluno";
 
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "./services/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
-export default function LoginPageF() {
+export default function LoginProf() {
   return (
     <>
       <Navbar />
@@ -16,13 +19,21 @@ export default function LoginPageF() {
 function LoginF() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const navigate = useNavigate();
+
 
   const [signInWithEmailAndPassword, user, loading, error] =
   useSignInWithEmailAndPassword(auth);
 
   function handleSignOut(e) {
     e.preventDefault();
-    signInWithEmailAndPassword(email, senha);
+    signInWithEmailAndPassword(email, senha).then(() => {
+      // Redirecionar para a página de Dashboard após o login bem-sucedido
+      navigate("/Studentpage");
+    })
+    .catch((error) => {
+      // Trate os erros aqui, se necessário
+    });
   }
 
   if (loading) {
@@ -61,9 +72,11 @@ function LoginF() {
         <a href="/emailRecup">Esqueceu sua senha</a>
       </div>
 
+      <Link to="/ProfPage">
       <button class="btn btn-primary" style={{ margin: "50px" }} onSubmit={handleSignOut}>
         Entrar
       </button>
+      </Link>
     </form>
   );
 }

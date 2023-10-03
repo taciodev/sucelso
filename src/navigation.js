@@ -29,35 +29,20 @@ export default function Navigation() {
                 Contato
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/Studentpage">
-                StudentPage
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/CoordPage">
-                CoordPage
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/ProfPage">
-                ProfPage
-              </a>
-            </li>
-
+            
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Login
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item as={Link} to="/loginF">
+                <Dropdown.Item as={Link} to="/loginAluno">
                   Aluno
                 </Dropdown.Item>
-                <Dropdown.Item as={Link} to="/loginF">
+                <Dropdown.Item as={Link} to="/loginProf">
                   Professor
                 </Dropdown.Item>
-                <Dropdown.Item as={Link} to="/loginF">
+                <Dropdown.Item as={Link} to="/loginCoord">
                   Coordenador
                 </Dropdown.Item>
               </Dropdown.Menu>

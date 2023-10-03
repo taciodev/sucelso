@@ -91,84 +91,11 @@ function Cadastrar() {
   );
 }
 
-function Excluir() {
-
-  const [aluno, setAluno] = useState("Selecionar");
-  const [prof, setProf] = useState("Selecionar");
-
-  function handleSubmit() {
-    const newItem = { aluno, prof };
-    console.log(newItem);
-  }
-
-  return (
-    <main className="container">
-      <h1 style={{ color: "red", marginTop: "7%" }}> EXCLUIR</h1>
-      <form
-        className="row g-3 needs-validation"
-        novalidate
-        onSubmit={handleSubmit}
-      >
-        <div className="col-md-3">
-          <label for="validationCustom04" className="form-label">
-            Alunos
-          </label>
-          <select
-            className="form-select"
-            id="validationCustom04"
-            value={aluno}
-            onChange={(e) => setAluno(e.target.value)}
-            required
-          >
-            <option selected disabled value="">
-              Selecionar
-            </option>
-            <option>Caio César</option>
-            <option>Gabriel Pamponet</option>
-            <option>Renata Santos</option>
-            <option>Claúdia Leite</option>
-            <option>Nenhum</option>
-          </select>
-          <div className="invalid-feedback">Selecione uma opção</div>
-        </div>
-
-        <div className="col-md-3">
-          <label for="validationCustom04" className="form-label">
-            Professor
-          </label>
-          <select
-            className="form-select"
-            id="validationCustom04"
-            required
-            value={prof}
-            onChange={(e) => setProf(e.target.value)}
-          >
-            <option selected disabled value="">
-              Selecionar
-            </option>
-            <option>Celso Barreto</option>
-            <option>Fabio Gonzaga</option>
-            <option>Sheila Maquezin</option>
-            <option>Nenhum</option>
-          </select>
-          <div className="invalid-feedback">Selecione uma opção</div>
-        </div>
-
-        <button className="btn btn-danger" type="submit">
-          Excluir
-        </button>
-      </form>
-    </main>
-  );
-}
-
 export default function Cadastro() {
   return (
     <>
       <NavbarCoord />
       <Cadastrar />
-      <Excluir />
-      {/* <TestDB /> */}
     </>
   );
 }
