@@ -1,5 +1,4 @@
 import { useState } from "react";
-import {Link } from "react-router-dom"
 
 import Navbar from "./navAluno";
 
@@ -7,7 +6,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "./services/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginAluno() {
+export default function LoginPageF() {
   return (
     <>
       <Navbar />
@@ -21,20 +20,34 @@ function LoginF() {
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
 
-
+  console.log("Linha 23")
+  
   const [signInWithEmailAndPassword, user, loading, error] =
   useSignInWithEmailAndPassword(auth);
 
   function handleSignOut(e) {
     e.preventDefault();
-    signInWithEmailAndPassword(email, senha).then(() => {
-      // Redirecionar para a página de Dashboard após o login bem-sucedido
-      navigate("/Studentpage");
-    })
-    .catch((error) => {
-      // Trate os erros aqui, se necessário
-    });
+    console.log("Botão Entrar clicado");
+    
+    signInWithEmailAndPassword(email, senha)
+      .then(() => {
+        console.log("Login bem-sucedido");
+        navigate("/Studentpage");
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer login:", error);
+        // Trate os erros aqui, se necessário
+      });
   }
+  //Certifique-se também de que os estados email e senha estão sendo preenchidos corretamente nos campos de entrada.
+  
+  //Se após essas verificações você ainda enfrentar problemas, seria útil verificar o console do navegador para ver se há mensagens de erro específicas que podem indicar qual é o problema. Isso pode ajudá-lo a depurar o código com mais precisão.
+  
+  
+  
+  
+  
+  
 
   if (loading) {
     return <p>carregando...</p>;
@@ -72,11 +85,10 @@ function LoginF() {
         <a href="/emailRecup">Esqueceu sua senha</a>
       </div>
 
-      <Link to="/Studentpage">
-      <button class="btn btn-primary" style={{ margin: "50px" }} onSubmit={handleSignOut}>
-        Entrar
-      </button>
-      </Link>
+      <button class="btn btn-primary" style={{ margin: "50px" }} onClick={handleSignOut}>
+  Entrar
+</button>
+
     </form>
   );
 }
