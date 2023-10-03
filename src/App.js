@@ -2,13 +2,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./Homepage";
-import LoginPageF from "./loginF";
+import LoginAluno from "./loginAluno";
+import LoginProf from "./loginProf";
+import LoginCoord from "./loginCoord";
 import NewLog from "./emailRecup";
 import StudentPage from "./Studentpage";
 import CoordPage from "./Coordpage";
 import ProfPage from "./ProfPage";
-import MessageBox from "./MessageBox";
-import PostAulas from "./PostAulas";
 import Cadastro from "./Cadastro";
 
 <link
@@ -28,13 +28,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/loginF" element={<LoginPageF />} />
+        <Route path="/loginAluno" element={<LoginAluno />} />
+        <Route path="/loginProf" element={<LoginProf />} />
+        <Route path="/loginCoord" element={<LoginCoord />} />
         <Route path="/emailRecup" element={<NewLog />} />
         <Route path="/Studentpage" element={<StudentPage />} />
         <Route path="CoordPage" element={<CoordPage />} />
         <Route path="ProfPage" element={<ProfPage />} />
-        <Route path="MessageBox" element={<MessageBox />} />
-        <Route path="PostAulas" element={<PostAulas />} />
         <Route path="Cadastro" element={<Cadastro />} />
       </Routes>
     </Router>

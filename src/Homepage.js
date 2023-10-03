@@ -31,6 +31,7 @@ export default function HomePage() {
 function MainBody() {
   return (
     <div className="main">
+      <h1 style={{textAlign:"center"}}>BEM VINDO A SUCELSO</h1>
       <div style={styles.imageContainer}>
         <p style={{ padding: "90px" }} className="text">
           Estude com até 100% de bolsa. No Sucelso, é Sucesso garantido

@@ -26,11 +26,7 @@ export default function NavAluno() {
               </a>
             </li>
 
-            <li className="nav-item">
-              <a className="nav-link" href="/MessageBox">
-                Enviar Mensagem
-              </a>
-            </li>
+            
           </ul>
         </div>
       </div>
